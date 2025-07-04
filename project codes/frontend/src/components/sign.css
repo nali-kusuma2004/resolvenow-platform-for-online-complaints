@@ -39,7 +39,8 @@ nav h1{
 }
 .signin1{
   /* border:2px solid rgb(60, 4, 116); */
-  background-color:rgb(41, 41, 216);
+  background-image:url("https://www.shutterstock.com/image-photo/consumer-feedback-concept-customer-satisfaction-600nw-2103127895.jpg");
+     background-size:100%;
   /* margin:10px 110px; */
   /* border-radius:20px; */
   padding-bottom:20px;
@@ -123,7 +124,8 @@ nav h1{
 /* css for login page */
 #login{
   display:block;
-  background-color:black;
+  background-image:url("https://www.shutterstock.com/image-photo/bad-review-negative-customer-feedback-600nw-2275394851.jpg");
+     background-size:cover;
   color:white;
   margin:0px;
   height:80vh;

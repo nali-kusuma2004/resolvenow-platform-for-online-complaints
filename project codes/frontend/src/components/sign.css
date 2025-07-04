@@ -117,3 +117,108 @@ nav h1{
     color:white;
     border-radius:10px;
 }
+
+
+
+/* css for login page */
+#login{
+  display:block;
+  background-color:black;
+  color:white;
+  margin:0px;
+  height:80vh;
+  padding:80px 170px;
+}
+
+.login1{
+  margin:35px 250px;
+padding:40px 20px;
+  width:30em;
+  height:30em;
+  border-radius:20px;
+  background-color:rgb(41, 41, 216);
+}
+
+.login1 h2{
+  text-align:center;
+  padding-top:10px;
+}
+
+.login1 label{
+  font-weight:bold;
+  margin-top:10px;
+  font-size:large;
+  text-align:left;
+}
+
+.login1 input{
+  width:410px;
+  height:40px;
+  /* background-color:#877899; */
+  margin-top:20px;
+  padding-left:20px;
+  font-size:larger;
+  border-radius:20px;
+  border-top:none;
+  color:black;
+  border-left:none;
+}
+
+.login1 select{
+    width:150px;
+    height:40px;
+    margin-top:10px;
+    /* background-color:#887799; */
+    color:black;
+    border-radius:10px;
+}
+
+.login1 button{
+  width:410px;
+  height:50px;
+  margin-top:0px;
+  margin-left:10px;
+  background-color:rgb(19, 116, 4);
+  color:rgb(246, 246, 245);
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  font-size:larger;
+}
+
+.login1 p{
+ text-align:center;
+font-size:large;
+  color:rgb(246, 246, 245);
+  margin-top:10px;
+}
+
+#complaintnav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background-color:skyblue;
+  color:white;
+  text-shadow:2px 2px 3px blue;
+  width:100%;
+  height:50px;
+  margin: -10px 0px 30px -10px;
+  padding:0px 20px;
+}
+
+#complaintnav h3{
+    color:white;
+    text-shadow:2px 2px 4px blue;
+    padding-left:20px;
+}
+#complaintnav button{
+    width:130px;
+    height:30px;
+    color:red;
+    font-size:medium;
+    background-color:black;
+    border-radius:15px;
+    margin-right:15px;
+    border:none;
+    cursor:pointer;
+}

@@ -16,14 +16,21 @@ export default function Log() {
       if (!res.ok) throw new Error("failed to verify data");
       const data = await res.json();
       console.log(data);
-      if (data.message === "User found") {
+      if(data.data.usertype === "admin"){
+          alert("Admin Login Successful");
+          setForm({ email: "", password: "", usertype: "" });
+          setuser(data.data.name);
+          setpage("status");
+      } 
+     else if (data.message === "User found") {
         alert("Login Successful");
         setForm({ email: "", password: "", usertype: "" });
+        setuser(data.data.name);
         setpage("complaintpage");
       } else {
         alert("User not found, please sign up");
         setpage("sign");
-      }
+      } 
     } catch (err) {
       console.log(err);
     }
@@ -32,8 +39,12 @@ export default function Log() {
   const back=()=>{
     window.location.reload();
   }
+  const opensign=()=>{
+    setpage("sign");
+  }
   const arr = ["select", "user", "admin", "agent"];
   const [page, setpage] = useState("log");
+  const [user,setuser]=useState("");
   const [form, setForm] = useState({ name:" ",email: "", password: "", usertype: "" });
   return (
     <>
@@ -42,7 +53,7 @@ export default function Log() {
         <nav> 
         <h1>Resolve Now</h1>
         <button id="home" onClick={back}>Home</button>
-        <button id="log-in"onClick={openlog}>Login</button>
+        <button id="log-in"onClick={opensign}>Sign in</button>
         </nav>
           <section id="login">
             <div className="login1">
@@ -92,8 +103,9 @@ export default function Log() {
           </section>
         </>
       )}
-      {page === "complaintpage" && <Complaintpage  />}
+      {page === "complaintpage" && <Complaintpage  username={user}/>}
       {page === "sign" && <Sign />}
+      {page === "status" && <Status username={user}/>}
     </>
   );
 }

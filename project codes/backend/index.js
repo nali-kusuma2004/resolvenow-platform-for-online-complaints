@@ -13,9 +13,13 @@ mongoose.connect("mongodb://localhost:27017/complaintdb")
 
 // Schemas
 const complaintSchema = new mongoose.Schema({
-    name: String,
-    type: String,
-    complaintaction: String
+    name: { type: String, required: true },
+    address: { type: String, required: true },
+    city: { type: String, required: true },
+    state: { type: String, required: true },
+    pincode: { type: String, required: true },
+    description: { type: String, required: true },
+    status: { type: String, default: "Pending" }
 });
 
 
@@ -74,10 +78,9 @@ app.post("/api/users",async (req, res) => {
 app.post("/api/userlog" ,async (req,res)=>{
     try{
         const {email,password,usertype}=req.body;
-         const userdata =await users.find({email:email,password:password,usertype:usertype});
-         if(userdata){
+         const userdata =await users.findOne({email});
+         if(userdata.email === email && userdata.password === password && userdata.usertype === usertype){
             // Assuming you want to send a success message back to the client
-
             res.json({ message: 'User found', data:userdata });  
          }
          else{
@@ -89,14 +92,24 @@ app.post("/api/userlog" ,async (req,res)=>{
     }
 })
 
-// ✅ Simple route
+app.post("/api/dataretrieve",async (req,res)=>{
+    const {username}=req.body;
+
+    const result=await Complaint.find({name:username});
+     if(result){
+         res.json({message:"data fetched",data:result});
+     }
+
+})
+
+// ✅ Simple route5
 app.get("/App", (req, res) => {
     res.send("Home page");
 });
 
 
 // ✅ Start Server
-const port = 3000;
+const port =3000;
 app.listen(port, () => {
     console.log("Server is running on port " + port);
 });

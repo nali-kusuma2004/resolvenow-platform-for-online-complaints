@@ -36,8 +36,9 @@ const senddata=async (e)=>{
       setForm({name:'',email:'',password:'', usertype:''}); 
       console.log(form); 
       const data=await res.json();
-      if(data.message === 'user saved successfully'){
+      if(data.message === 'User saved successfully'){
         alert("Signed In Successfully");
+        setuser(data.data.name);
         setpage('complaintpage');
       }
       else{
@@ -55,7 +56,7 @@ const senddata=async (e)=>{
   const arr =['select','user','admin','agent'];
   
   const [page,setpage]=useState("sign");
-  const [cards,setcards]=useState();
+  const [user,setuser]=useState("");
  
   
 function insert(){
@@ -106,7 +107,7 @@ function openlog(){ setpage('log'); }
     {
       page === "log" && <Log />
     }
-    {page === "complaintpage" && <Complaintpage username={form.name} />}
+    {page === "complaintpage" && <Complaintpage username={user}/>}
     </>
   );
 }
